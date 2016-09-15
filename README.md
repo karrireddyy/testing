@@ -138,3 +138,4 @@ analysis in OCRopus with trainable 2D LSTM models.
 ## Solution for clang
 
 [Read README_OSX.md](README_OSX.md)
+testing
