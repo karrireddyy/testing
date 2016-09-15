@@ -1,0 +1,34 @@
+#!/usr/bin/env python
+
+import sys,os,string,re
+from lxml import html, etree
+
+################################################################
+### main program
+################################################################
+
+def print_usage():
+    sys.stderr.write("combine multiple hOCR documents into one\n\n")
+    sys.stderr.write("usage: %s file1.html file2.html...\n"%sys.argv[0])
+
+if len(sys.argv)>1 and (sys.argv[1] == '-h' or sys.argv[1] == '--help'):
+    print_usage()
+    sys.exit(0)
+
+if len(sys.argv)<2:
+    print_usage()
+    sys.exit(1)
+
+doc = html.fromstring(open(sys.argv[1]).read())
+
+pages = doc.xpath("//*[@class='ocr_page']")
+container = pages[-1].getparent()
+
+for fname in sys.argv[2:]:
+    doc2 = html.fromstring(open(fname).read())
+    pages = doc2.xpath("//*[@class='ocr_page']")
+    for page in pages:
+        page = doc.importNode(page,1)
+        container.append(page)
+
+print(etree.tostring(doc, pretty_print=True))

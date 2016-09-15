@@ -1,0 +1,5 @@
+TEMPORARY_PASSWORD_EMAIL_TEMPLATE="temporary-password-email.html"
+WELCOME_EMAIL_TEMPLATE = "welcome-email.html"
+NEW_PROPOSAL_EMAIL_TEMPLATE="new-proposal-email.html"
+PROPOSAL_ACCEPTED_EMAIL_TEMPLATE="proposal-accepted-email.html"
+PROPOSAL_REJECTED_EMAIL_TEMPLATE="proposal-rejected-email.html"
