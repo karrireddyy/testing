@@ -1,0 +1,2 @@
+ORGANIZATION_EVENT="org_event"
+DOCUMENT_EVENT="doc_event"
